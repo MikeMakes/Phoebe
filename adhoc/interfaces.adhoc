@@ -14,7 +14,8 @@ iface eth0 inet manual
 auto wlan0
 # allow-hotplug wlan0
 iface wlan0 inet static
-	address 192.168.0.192	#.192 due to personal config in my router
+	address 192.168.0.192
+	#.192 due to personal config in my router
 	netmask 255.255.255.0
 	wireless-channel 1
 	wireless-essid piah
