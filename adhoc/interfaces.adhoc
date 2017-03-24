@@ -3,6 +3,8 @@
 # Please note that this file is written to be used with dhcpcd
 # For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
 
+#.192 due to personal config in my router
+
 # Include files from /etc/network/interfaces.d:
 source-directory /etc/network/interfaces.d
 
@@ -15,8 +17,8 @@ auto wlan0
 # allow-hotplug wlan0
 iface wlan0 inet static
 	address 192.168.0.192
-	#.192 due to personal config in my router
 	netmask 255.255.255.0
+	wireless-key 1234567890
 	wireless-channel 1
 	wireless-essid piah
 	wireless-mode ad-hoc
