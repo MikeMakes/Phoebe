@@ -23,9 +23,11 @@ read -p "Any key to switch-on the ad-hoc" -n1 -s && echo "/n"
 
 #Change interfaces for interfaces.adhoc
 sudo cp $DIR/interfaces.adhoc /etc/network/interfaces || error_exit "$LINENO: Error here!"
-#sudo iwconfig wlan0 key off
 
-sudo ifdown wlan0 && sudo ifup wlan0	#Turning off and on the interface
-sudo ifdown wlan0 && sudo ifup wlan0	#Twice for actually get it working (dhcpcd issue maybe?)
+sudo ifdown wlan0 
+sudo ifup wlan0
+sudo ifdown wlan0 && sudo ifup wlan0				#Twice for actually get it working (dhcpcd issue maybe?)
+iwlist wlan0 scan							#Turning off and on the interface
+#sudo ifdown wlan0 && sudo ifup wlan0			#Twice for actually get it working (dhcpcd issue maybe?)
 echo "Ad-Hoc ready" && exit 0
 
