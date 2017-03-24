@@ -22,5 +22,7 @@ sudo cp /etc/network/interfaces.backup /etc/network/interfaces || error_exit "$L
 sudo iwconfig wlan0 mode Managed
 
 #Turning off and on the interface
-sudo ifdown wlan0 && sudo ifup wlan0
+sudo ifdown wlan0 
+sudo ifup wlan0
+iwlist wlan0 scan
 echo "All settings restored" && exit 0
