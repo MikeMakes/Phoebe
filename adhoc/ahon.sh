@@ -15,8 +15,13 @@ error_exit()
 	
 #############################	The script starts here	##############################
 
-echo "Backup /etc/network/interfaces as interfaces.backup"
-sudo cp /etc/network/interfaces /etc/network/interfaces.backup || error_exit "$LINENO: Error creating backup"
+if [ -e /etc/network/interfaces.backup ]; then
+	echo "Backup alredy exist. Ad-Hoc probably on, trying to turn it off"
+	.$DIR/ahoff.sh
+else
+	echo "Backup /etc/network/interfaces as interfaces.backup"
+	sudo cp /etc/network/interfaces /etc/network/interfaces.backup || error_exit "$LINENO: Error creating backup"
+fi
 
 #Check what RPi is this
 grep 'a02082' /proc/cpuinfo && PI=pi3 

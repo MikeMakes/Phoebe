@@ -14,13 +14,10 @@ error_exit()
 	
 #############################	The script starts here	##############################
 
-
-read -p "Any key to switch-off the ad-hoc" -n1 -s && echo "/n"		
-
-#Restore interface config
-sudo cp /etc/network/interfaces.backup /etc/network/interfaces || error_exit "$LINENO: Error here!"
+#Restore interface config and removing backup
+sudo cp /etc/network/interfaces.backup /etc/network/interfaces || error_exit "$LINENO: I couldn't restore the backup"
+sudo rm /etc/network/interfaces.backup
 sudo iwconfig wlan0 mode Managed
-
 #Turning off and on the interface
 sudo ifdown wlan0 
 sudo ifup wlan0
