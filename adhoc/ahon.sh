@@ -1,4 +1,6 @@
 #!/bin/bash
+#Setup Ad-Hoc, differentation between RPis
+#Used with ahoff.sh is a easy way for tongle on and off the Ad-Hoc
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Directory where this script is (Commentable in case it is not neccesary)
 

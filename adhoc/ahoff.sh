@@ -1,4 +1,6 @@
 #!/bin/bash
+#Turn off Ad-Hoc and restore the previous wlan configuration
+
 
 #DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Directory where this script is (Commentable in case it is not neccesary)
 
