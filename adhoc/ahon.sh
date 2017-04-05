@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Directory where this script is
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Directory where this script is (Commentable in case it is not neccesary)
 
 # A slicker error handling routine by William Shotts (www.linuxcommand.org)
 
@@ -24,14 +24,15 @@ else
 fi
 
 #Check what RPi is this
-grep 'a02082' /proc/cpuinfo && PI=pi3 
-grep '0010' /proc/cpuinfo && PI=pi1
+grep '3989d85a' /proc/cpuinfo && PI=pi3MIGUEL 
+grep 'some numbers from grep Serial /proc/cpuinfo' /proc/cpuinfo && PI=pi3OTHER
+grep '0010' /proc/cpuinfo && PI=pi1OTHER
 
 echo " Setting /etc/network/interfaces properly"	#Change interfaces for interfaces.adhoc
-if [ "$PI" = "pi3" ]; then 
-	sudo cp $DIR/interfaces.adhocpi3 /etc/network/interfaces || error_exit "$LINENO: Error copying  .adhocpi3 to /etc/network"
-elif [ "$PI" = "pi1" ]; then
-	sudo cp $DIR/interfaces.adhocpi1 /etc/network/interfaces || error_exit "$LINENO: Error copying  .adhocpi1 to /etc/network"
+if [ "$PI" = "pi3MIGUEL" ]; then 
+	sudo cp $DIR/interfaces.adhocpi3MIGUEL /etc/network/interfaces || error_exit "$LINENO: Error copying  .adhocpi3 to /etc/network"
+elif [ "$PI" != "pi3MIGUEL" ]; then
+	sudo cp $DIR/interfaces.adhocpiXOTHER /etc/network/interfaces || error_exit "$LINENO: Error copying  .adhocpiXOTHER to /etc/network"
 else
 	error_exit "$LINENO: I dont know what RPi is in use. Check the README if you dont know what I am talking about"
 fi
