@@ -1,6 +1,13 @@
 #!/bin/bash
-#Turn off Ad-Hoc and restore the previous wlan configuration
 
+
+#############################	Description	######################################
+
+#Turn off Ad-Hoc and restore the previous wlan configuration
+#Used with ahon.sh is a easy way for tongle the Ad-Hoc
+
+
+#############################	Useful things and error handling	##############
 
 #DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Directory where this script is (Commentable in case it is not neccesary)
 
@@ -13,6 +20,7 @@ error_exit()
 	echo "${PROGNAME}: ${1:-"Unknown Error"}" 1>&2
 	exit 1
 }
+
 	
 #############################	The script starts here	##############################
 

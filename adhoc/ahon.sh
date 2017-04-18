@@ -1,6 +1,13 @@
 #!/bin/bash
+
+
+#############################	Description	######################################
+
 #Setup Ad-Hoc, differentation between RPis
-#Used with ahoff.sh is a easy way for tongle on and off the Ad-Hoc
+#Used with ahoff.sh is a easy way for tongle the Ad-Hoc
+
+
+#############################	Useful things and error handling	##############
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Directory where this script is (Commentable in case it is not neccesary)
 
@@ -41,9 +48,9 @@ fi
 
 sudo ifdown wlan0 && sudo ifup wlan0
 sudo ifdown wlan0 && sudo ifup wlan0				#Twice for actually get it working properly (?)
-echo "Restarting inteface wlan0. This gonna take me 20s"
+echo "Restarting inteface wlan0. This gonna take me 20s"	#Waiting for the interface establishment
 sleep 20
-iwlist wlan0 scan									#Scan with wlan0 (Somes drivers need this to trigger IBSS)
+iwlist wlan0 scan						#Scan with wlan0 (Somes drivers need this to trigger IBSS)
 
 echo "Ad-Hoc ready" && exit 0
 
