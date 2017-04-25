@@ -23,4 +23,4 @@ error_exit()
 	
 #############################	The script starts here	##############################
 
-vlc -vvv rtsp://192.168.1.192:8554/file.h264
+vlc -vvv rtsp://192.168.1.192:8554/file.h264	#Replace 192.168.1.192 for other ip if necessary
