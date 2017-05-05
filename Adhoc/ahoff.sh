@@ -31,5 +31,5 @@ sudo iwconfig wlan0 mode Managed
 #Turning off and on the interface
 sudo ifdown wlan0 
 sudo ifup wlan0
-iwlist wlan0 scan
+sudo iwlist wlan0 scan
 echo "All settings restored" && exit 0
