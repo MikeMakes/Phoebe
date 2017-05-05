@@ -40,12 +40,14 @@ echo " Setting /etc/network/interfaces properly"	#Change interfaces for interfac
 if [ "$PI" = true ]; then 
 	sudo cp $DIR/interfaces.adhocPI /etc/network/interfaces || error_exit "$LINENO: Error copying  .adhocPI to /etc/network"
 else
+	sudo systemctl stop NetworkManager.service		#In case the PC use GNOME or KDE	
 	sudo cp $DIR/interfaces.adhocNOTPI /etc/network/interfaces || error_exit "$LINENO: Error copying  .adhocNOTPI to /etc/network"
 fi
 
 sudo ifdown wlan0 && sudo ifup wlan0
 sudo ifdown wlan0 && sudo ifup wlan0				#Twice for actually get it working properly (?)
 echo "Restarting inteface wlan0. This gonna take me 20s"	#Waiting for the interface establishment
+if [ "$PI" = false ]; then sudo systemctl stop NetworkManager.service; fi		#In case the PC use GNOME or KDE
 sleep 20
 sudo iwlist wlan0 scan						#Scan with wlan0 (Somes drivers need this to trigger IBSS)
 
