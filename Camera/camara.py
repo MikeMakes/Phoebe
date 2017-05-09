@@ -1,14 +1,9 @@
-sudo apt-get update
-sudo apt-get upgrade
+from time import sleep
+from picamera import PiCamera
 
-sudo apt-get install python-picamera
-
-#!/usr/bin/python
-import time
-import picamera
-
-with picamera.PiCamera() as picam:
-    picam.start_preview()
-    time.sleep(10)
-    picam.stop_preview()
-    picam.close()
+camera = PiCamera()
+camera.resolution = (1024, 768)
+camera.start_preview()
+# Camera warm-up time
+sleep(2)
+camera.capture('foo.jpg')
