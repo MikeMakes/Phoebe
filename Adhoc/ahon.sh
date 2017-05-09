@@ -32,25 +32,28 @@ else
 	sudo cp /etc/network/interfaces /etc/network/interfaces.backup || error_exit "$LINENO: Error creating backup"
 fi
 
-#Check what RPi is this
-grep '3989d85a' /proc/cpuinfo && PI=pi3MIGUEL 
-grep 'some numbers from grep Serial /proc/cpuinfo' /proc/cpuinfo && PI=pi3OTHER
-grep '0010' /proc/cpuinfo && PI=pi1OTHER
 
-echo " Setting /etc/network/interfaces properly"	#Change interfaces for interfaces.adhoc
-if [ "$PI" = "pi3MIGUEL" ]; then 
-	sudo cp $DIR/interfaces.adhocpi3MIGUEL /etc/network/interfaces || error_exit "$LINENO: Error copying  .adhocpi3 to /etc/network"
-elif [ "$PI" != "pi3MIGUEL" ]; then
-	sudo cp $DIR/interfaces.adhocpiXOTHER /etc/network/interfaces || error_exit "$LINENO: Error copying  .adhocpiXOTHER to /etc/network"
+#Check what RPi is this
+PI=false
+grep 'BCM2708' /proc/cpuinfo && PI=true
+
+
+echo " Setting /etc/network/interfaces properly"		#Change interfaces for interfaces.adhoc
+if [ "$PI" = true ]; then 
+	sudo cp $DIR/interfaces.adhocPI /etc/network/interfaces || error_exit "$LINENO: Error copying  .adhocPI to /etc/network"
 else
-	error_exit "$LINENO: I dont know what RPi is in use. Check the README if you dont know what I am talking about"
+	sudo systemctl stop NetworkManager.service		#In case the PC use GNOME or KDE	
+	sudo cp $DIR/interfaces.adhocNOTPI /etc/network/interfaces || error_exit "$LINENO: Error copying  .adhocNOTPI to /etc/network"
 fi
+
 
 sudo ifdown wlan0 && sudo ifup wlan0
 sudo ifdown wlan0 && sudo ifup wlan0				#Twice for actually get it working properly (?)
 echo "Restarting inteface wlan0. This gonna take me 20s"	#Waiting for the interface establishment
 sleep 20
-iwlist wlan0 scan						#Scan with wlan0 (Somes drivers need this to trigger IBSS)
+if [ "$PI" = false ]; then sudo systemctl start NetworkManager.service; fi		#In case the PC use GNOME or KDE
+sudo iwlist wlan0 scan						#Scan with wlan0 (Somes drivers need this to trigger IBSS)
 
+sudo iwconfig
 echo "Ad-Hoc ready" && exit 0
 
