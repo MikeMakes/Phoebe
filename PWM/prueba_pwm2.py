@@ -24,6 +24,5 @@ try:                        # Abrimos un bloque 'Try...except KeyboardInterrupt'
         print("Ciclo completo")    # Imprime por pantalla: Ciclo completo
 
 except KeyboardInterrupt:   # Se ha pulsado CTRL+C!!
-    white.stop()            # Detenemos el objeto 'white'
     red.stop()              # Detenemos el objeto 'red'
     GPIO.cleanup()          # Limpiamos los pines GPIO y salimos
