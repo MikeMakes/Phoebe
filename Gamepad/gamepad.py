@@ -36,3 +36,6 @@ if __name__=="__main__":
 	for event in gamepad.read_loop():
 		if key_press(square_key):
 			print "Square pressed"
+		axe = axe_move(ljX_axe)
+		if axe is not None:
+			print ("Left Joystick move:{}".format(axe))
