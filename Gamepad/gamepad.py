@@ -1,61 +1,38 @@
-import pygame
+from evdev import InputDevice,list_devices, ecodes, KeyEvent, categorize
+from ps3map import *
 
-pygame.joystick.init()
-joysticks = [pygame.joystick.Joystick(i) for i in range(pygame.joystick.get_count())]
+def search_devices(name='Sony PLAYSTATION(R)3 Controller'):	#This will search 'name' through all the devices
+	print("Searching:")
+	print(repr(name))
+	devices = [InputDevice(fn) for fn in list_devices()]
+	for device in devices:
+		print(device.fn, device.name, device.phys)
+		if device.name == name:
+			return device		#Return the device with name 'name'
 
-def init_joystick(n=0):
-	joysticks[n].init()
+def key_press(key):
+	if event.type == ecodes.EV_KEY:		#Check if it is a key related event
+		keyevent = categorize(event)
+		if event.code == key and keyevent.keystate == KeyEvent.key_down:	#If 'key' pressed:
+			return True
+		else:
+			return False
 
-def whoareyou(n=0):
-	return joysticks[n].get_name()
+def key_release(key):
+	if event.type == ecodes.EV_KEY:
+		keyevent = categorize(event)
+		if event.code == key and keyevent.keystate == KeyEvent.key_up:		#If 'key' released:
+			return True
+		else:
+			return False
 
-def howmanyaxes(n=0):
-	return joysticks[n].get_numaxes()
+def axe_move(axe):
+	if event.type == ecodes.EV_ABS:		#Check if it is an absolute axis related event
+		if event.code == axe:		#If 'axe' moved:
+			return event.value 
 
-def get_all_axes(n=0):
-	return [joysticks[n].get_axis(i) for i in range(joysticks[n].get_numaxes())]
-
-def get_axes(selection=None, n=0):
-	if selection:
-		if isinstance(selection[0],tuple):
-			out=[]
-			for i in range(0,len(selection[0])):
-				if selection[0][i] is None:
-					out.insert(i,get_all_axes())
-				else:
-					out.insert(i,joysticks[n].get_axis(selection[0][i]))
-		else
-			out=joysticks[n].get_axis(selection[0])
-	else:
-		out = get_all_axes(n)
-	return out
-
-def howmanybuttons(n=0):
-	return joysticks[n].get_numbuttons()
-
-def get_all_buttons(n=0):
-	return [joysticks[n].get_button(i) for i in range(joysticks[n].get_numbuttons())]
-
-def get_buttons(selection=None, n=0):
-	if selection:
-		out = joysticks[n].get_button(selection[-2])
-	else:
-		out=get_all_buttons(n)
-	return out
-
-def howmanyhats(n=0):
-	return joysticks[n].get_numhats()
-
-def get_all_hats(n=0):
-	return [joysticks[n].get_hat(i) for i in range(joysticks[n].get_numhats())]
-
-def get_hats(selection=None, n=0):
-	if selection:
-		out=joysticks[n].get_hat(selection[-1])
-	else:
-		out=get_all_axes(n)	
-	return out
-
-
-#create a group of axes, usefull for sticks
-#ls = left stick = ( (axe x , axe y , axe z,...,), button , hat )
+if __name__=="__main__":
+	gamepad = search_devices('Sony PLAYSTATION(R)3 Controller')
+	for event in gamepad.read_loop():
+		if key_press(square_key):
+			print "Square pressed"
