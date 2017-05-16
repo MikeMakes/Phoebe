@@ -43,3 +43,10 @@ if __name__=="__main__":
 		axe = axe_move(ljX_axe)
 		if axe is not None:
 			print ("Left Joystick move:{}".format(axe))
+		axe = axe_move(ljY_axe)
+		if axe is not None:
+			print ("Left Joystick move:{}".format(axe))
+
+
+
+
