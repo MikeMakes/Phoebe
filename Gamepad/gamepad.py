@@ -28,8 +28,12 @@ def key_release(key):
 
 def axe_move(axe):
 	if event.type == ecodes.EV_ABS:		#Check if it is an absolute axis related event
-		if event.code == axe:		#If 'axe' moved:
-			return event.value 
+		 if event.code == axe:		#If 'axe' moved:
+			axevalue=event.value-128
+			if  axevalue<0:
+				return 0
+			else:
+				return axevalue
 
 if __name__=="__main__":
 	gamepad = search_devices('Sony PLAYSTATION(R)3 Controller')
