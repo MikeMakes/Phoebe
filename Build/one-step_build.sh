@@ -30,5 +30,4 @@ echo "Checking if vlc is installed (and installing it if it''s not), since it wo
 vlc --version || sudo apt-get install vlc
 
 echo "Checking if picamera library is installed (and installing it if it''s not)" 
-python -c "import picamera" || sudo apt-get install python-picamera
-python3 -c "import picamera" || sudo apt-get install python3-picamera
+python -c "import evdev" || sudo apt-get install python-evdev
