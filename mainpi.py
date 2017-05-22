@@ -8,7 +8,7 @@ try:
 	pwm.start(left_pin,0)
 
 	server=tcp.mysocket()
-	server.server("192.168.1.191",4200)		#Check IP
+	server.server("192.168.1.192",4200)		#RPI IP
 	server.accept()
 
 	exit = False

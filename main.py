@@ -1,7 +1,7 @@
 import gamepad
 import tcp
 
-def map(bar, from_min, long from_max, long to_min, long to_max):
+def map(bar, from_min,  from_max,  to_min,  to_max):
   return (bar - from_min) * (to_max - to_min) / (from_max - from_min) + to_min;
 
 try:
