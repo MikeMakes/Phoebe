@@ -37,5 +37,5 @@ if __name__ == "__main__" :
 		changedc(pwm,i)
 		sleep(15)
 	end(pwm)
-	clean():
+	clean()
 	
