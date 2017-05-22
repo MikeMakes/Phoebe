@@ -7,7 +7,7 @@ GPIO.setmode(GPIO.BCM)  # Ponemos la Raspberry en modo BCM
   
 GPIO.setup(24, GPIO.OUT)  # Ponemos el pin GPIO nº24 como salida para el LED  
   
-red = GPIO.PWM(24, 480)     # Creamos el objeto 'red' en el pin 24 a 100 Hz 
+red = GPIO.PWM(24, 480)     # Creamos el objeto 'red' en el pin 24 a 480 Hz 
   
 def led(a):
 	red.start(a)

@@ -29,19 +29,19 @@ def key_release(key):				#Return True when key is released
 def axe_move(axe):				#Return axe's value when its move
 	if event.type == ecodes.EV_ABS:		#Check if it is an absolute axis related event
 		if event.code == axe:		#If 'axe' moved:
-			return axevalue
+			return event.value
 
 if __name__=="__main__":
 	gamepad = search_devices('Sony PLAYSTATION(R)3 Controller')
 	for event in gamepad.read_loop():
 		if key_press(square_key):
 			print "Square pressed"
-		axe = axe_move(ljX_axe)
+		axe = axe_move(l2_axe)
 		if axe is not None:
-			print ("Left Joystick X move:{}".format(axe))
-		axe = axe_move(ljY_axe)
+			print ("L2:{}".format(axe))
+		axe = axe_move(r2_axe)
 		if axe is not None:
-			print ("Left Joystick Y move:{}".format(axe))
+			print ("R2:{}".format(axe))
 
 
 

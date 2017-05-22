@@ -12,16 +12,30 @@ def start(pwm=None, dc=0):
 		break
 	pwm.start(dc)
 
+def changedc(pwm=None, dc=0):
+	if pwm is None:
+		break
+	pwm.ChangeDutyCicle(dc)
+
+def changefrew(pwm=None, freq=480):
+	if pwm is None:
+		break
+	pwm.ChangeFrequency(freq)
+
 def end(pwm=None):
 	if pwm is None:
 		break
 	pwm.stop()
+
+def clean():
 	GPIO.cleanup()
 	
 if __name__ == "__main__" :
 	pwm=__init__()
+	start(pwm,0)
 	for i in range(100):
-		start(pwm,i)
+		changedc(pwm,i)
 		sleep(15)
 	end(pwm)
+	clean():
 	
