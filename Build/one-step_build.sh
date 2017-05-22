@@ -16,7 +16,13 @@ echo "Checking if vlc is installed (and installing it if it''s not), since it wo
 vlc --version || sudo apt-get install vlc
 
 echo "Checking evdev library (gamepad input)" 
-python -c "import evdev" || sudo apt-get install python-evdev
+INSTALL_EVDEV = false
+python -c "import evdev" || INSTALL_EVDEV = true
+if [ "$INSTALL_EVDEV" = true ]; then 
+	sudo apt-get install python-dev python-pip gcc
+	sudo apt-get install linux-headers-$(uname -r)
+	pip install evdev
+fi
 
 echo "Checking socket library (used for TCP connection)"
 python -c "import socket" || sudo apt-get install python-socket
