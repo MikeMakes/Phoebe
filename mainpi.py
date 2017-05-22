@@ -13,7 +13,7 @@ try:
 
 	exit = False
 
-	while !exit:
+	while not exit:
 		tcp_input = server.receive()
 		if tcp_input == "RIGHT":
 			right_motor = int(server.receive())
