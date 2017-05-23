@@ -1,10 +1,14 @@
 import pwm
 
 motor = GPIO.PWM(24, 480)
-i=5;
+i=5
+iant= 0
 start(motor, 5)
-print ("Valor de i:{}".format(i))
-changedc(motor, i)
-raw_input()
+while True:
+	print ("Valor de i:{}".format(i))
+	print ("Esperando nueva i: ")
+	i=input()
+	changedc(motor, i)
+finally:
 	end(motor)
 	clean()
