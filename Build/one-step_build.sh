@@ -19,6 +19,7 @@ echo "Checking evdev library (gamepad input)"
 INSTALL_EVDEV = false
 python -c "import evdev" || INSTALL_EVDEV = true
 if [ "$INSTALL_EVDEV" = true ]; then 
+	sudo apt-get install python	#Esto creio que te faltaba miguel (Javi)
 	sudo apt-get install python-dev python-pip gcc
 	sudo apt-get install linux-headers-$(uname -r)
 	pip install evdev
