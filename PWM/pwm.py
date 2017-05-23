@@ -15,7 +15,7 @@ def start(pwm=None, dc=0):
 def changedc(pwm=None, dc=0):
 	if pwm is None:
 		return None     #Must be substituted for exception
-	pwm.ChangeDutyCicle(dc)
+	pwm.ChangeDutyCycle(dc)
 
 def changefrew(pwm=None, freq=480):
 	if pwm is None:
