@@ -39,7 +39,7 @@ class mysocket:
 			BUFFER = 1
 		recv_buffer=""
 		data=""
-		while data is not "\n":	
+		while data != "\n":	
 			data = self.connection.recv(BUFFER)
 			recv_buffer = recv_buffer + data		
 		return recv_buffer
