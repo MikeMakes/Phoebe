@@ -31,15 +31,19 @@ class mysocket:
 		self.sock.connect((IP,PORT))
 	
 	def send(self,msg="Test"):			#Send a string to the server
-		msg = str(msg)
+		msg = str(msg)+"\n"
 		self.sock.send(msg)
 
 	def receive(self,BUFFER=None):			#Receive a string from the client
 		if BUFFER is None:
-			BUFFER = 1024
-		data = self.connection.recv(BUFFER)
-		return data
-
+			BUFFER = 1
+		recv_buffer=""
+		data=""
+		while data is not "\n":	
+			data = self.connection.recv(BUFFER)
+			recv_buffer = recv_buffer + data		
+		return recv_buffer
+		
 	def closesocket(self):				#Close socket, must be called before exit the program
 		print "Closing connection"
 		self.sock.close()
