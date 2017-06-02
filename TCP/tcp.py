@@ -31,7 +31,7 @@ class mysocket:
 		self.sock.connect((IP,PORT))
 	
 	def send(self,msg="Test"):			#Send a string to the server
-		msg = str(msg)+"\n"
+		msg = str(msg)+"\0"
 		self.sock.send(msg)
 
 	def receive(self,BUFFER=None):			#Receive a string from the client
@@ -39,7 +39,7 @@ class mysocket:
 			BUFFER = 1
 		recv_buffer=""
 		data=""
-		while data != "\n":	
+		while data != "\0":	
 			data = self.connection.recv(BUFFER)
 			recv_buffer = recv_buffer + data		
 		return recv_buffer
