@@ -2,7 +2,7 @@
 
 cd /usr/local
 
-git clone git://source.ffmpeg.org/ffmpeg.git
+sudo git clone git://source.ffmpeg.org/ffmpeg.git
 
 cd ffmpeg/
 
