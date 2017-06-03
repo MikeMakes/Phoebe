@@ -42,7 +42,7 @@ class mysocket:
 		while data != "\0":	
 			data = self.connection.recv(BUFFER)
 			recv_buffer = recv_buffer + data		
-		return recv_buffer
+		return recv_buffer[:-1]
 		
 	def closesocket(self):				#Close socket, must be called before exit the program
 		print "Closing connection"
