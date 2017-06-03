@@ -19,9 +19,10 @@ echo "Checking evdev library (gamepad input)"
 INSTALL_EVDEV = false
 python -c "import evdev" || INSTALL_EVDEV = true
 if [ "$INSTALL_EVDEV" = true ]; then 
+	sudo apt-get install python
 	sudo apt-get install python-dev python-pip gcc
 	sudo apt-get install linux-headers-$(uname -r)
-	pip install evdev
+	pip install evdev		#sudo apt-get install python-evdev gcc
 fi
 
 echo "Checking socket library (used for TCP connection)"
