@@ -1,7 +1,7 @@
 ffmpeg -f v4l2 -framerate 16 -video_size 640x480 -i /dev/video0 output2.h264
 
 comunicación rtp por el ethernet:
-ffmpeg -f v4l2 -framerate 30 -video_size 320x240 -i /dev/video0 -tune zerolatency -f rtp rtp://10.42.0.1:1234
+ffmpeg -f v4l2 -framerate 30 -video_size 640x480 -i /dev/video0 -tune zerolatency -f rtp rtp://10.42.0.1:1234
 
 en el lado cliente:
 ffplay rtp://10.42.0.1:1234
