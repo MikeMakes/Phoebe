@@ -10,8 +10,10 @@ try:
 
 	while not exit:
 		tcp_input = server.receive()
+		#print tcp_input
 		if tcp_input == "RIGHT":
 			right_motor = int(server.receive())
+			#right_motor = server.receive()
 			print "RIGHT: ", right_motor
 		elif tcp_input == "LEFT":
 			left_motor = int(server.receive())
