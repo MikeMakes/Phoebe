@@ -19,7 +19,7 @@ void loop(){
  valueR=map(valueR,0,255,1000,2000);
  valueL=map(valueL,0,255,1000,2000);
  
- righESC.writeMicroseconds(valueR);
+ rightESC.writeMicroseconds(valueR);
  leftESC.writeMicroseconds(valueL);
 
  

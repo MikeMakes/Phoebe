@@ -5,7 +5,7 @@ GPIO.setmode(GPIO.BCM)
 
 def __init__(pin=24,freq=480):
 	GPIO.setup(pin, GPIO.OUT)
-	return GPIO.PWM(24, 480)
+	return GPIO.PWM(pin, freq)
 
 def start(pwm=None, dc=0):
 	if pwm is None:

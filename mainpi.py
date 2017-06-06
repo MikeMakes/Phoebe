@@ -4,9 +4,10 @@ import pwm
 def map(bar, from_min,  from_max,  to_min,  to_max):
   return (bar - from_min) * (to_max - to_min) / (from_max - from_min) + to_min;
 
+
 try:
-	right_pin = pwm.__init__(24,1000)
-	left_pin = pwm.__init__(5,1000)
+	right_pin = pwm.__init__(20,50)
+	left_pin = pwm.__init__(21,50)
 	pwm.start(right_pin,0)
 	pwm.start(left_pin,0)
 
@@ -19,10 +20,10 @@ try:
 	while not exit:
 		tcp_input = server.receive()
 		if tcp_input == "RIGHT":
-			right_motor = map(int(server.receive()),0,255,5,10)
+			right_motor = map(int(server.receive()),0,255,0,100)
 			pwm.changedc(right_pin,right_motor)
 		elif tcp_input == "LEFT":
-			left_motor = map(int(server.receive()),0,255,5,10)
+			left_motor = map(int(server.receive()),0,255,0,100)
 			pwm.changedc(left_pin,left_motor)
 		elif tcp_input == "EXIT":
 			exit = True
