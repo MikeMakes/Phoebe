@@ -4,10 +4,10 @@ I am Phoebe, an amphibian vehicle being developed by students from the Universit
 
     Copyright (C) 2017
         Authors:
-            * 
-            * Juan Sandubete López
             * Miguel López Gil
-            *
+            * Pelayo Gutiérrez Jiménez
+            * Juan Sandubete López
+            * Javier Ponce Chulani
             *
             *
             *
