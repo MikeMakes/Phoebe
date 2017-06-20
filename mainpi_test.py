@@ -1,6 +1,5 @@
  #This is a Raspberry script. It opens a TCP network and print on screen the value recived from laptop
 import tcp
-import pwm
 
 try:
 	server=tcp.mysocket()
@@ -14,7 +13,6 @@ try:
 		#print tcp_input
 		if tcp_input == "RIGHT":
 			right_motor = int(server.receive())
-			#right_motor = server.receive()
 			print "RIGHT: ", right_motor
 		elif tcp_input == "LEFT":
 			left_motor = int(server.receive())
