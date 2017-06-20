@@ -1,6 +1,8 @@
+# Raspberry script that makes a PWM signal based on the value that recive from laptop
 import tcp
 import pwm
 
+#Function that converts the value recived from laptop to PWM signal value
 def map(bar, from_min,  from_max,  to_min,  to_max):
   return (bar - from_min) * (to_max - to_min) / (from_max - from_min) + to_min;
 
