@@ -1,6 +1,8 @@
+#This script has to be executed in the laptop
 import tcp
 from ps3map import *
 from evdev import InputDevice,list_devices, ecodes, KeyEvent, categorize
+#Next, we define some functions to be able to use the PS3 controller
 
 def search_devices(name='Sony PLAYSTATION(R)3 Controller'):	#This will search 'name' through all the devices
 	print("Searching:")
@@ -19,7 +21,7 @@ def key_press(key):				#Return True when key is pressed
 		else:
 			return False
 
-def key_release(key):				#Return True when key is released
+def key_release(key):			#Return True when key is released
 	if event.type == ecodes.EV_KEY:
 		keyevent = categorize(event)
 		if event.code == key and keyevent.keystate == KeyEvent.key_up:		#If 'key' released:
@@ -32,7 +34,9 @@ def axe_move(axe):				#Return axe's value when its move
 		if event.code == axe:		#If 'axe' moved:
 			return event.value
 
-
+#This is the main part of the program. It connects to a TCP network created by Raspberry.
+#From the PS3 controller, it detects the axes R2 and L2, then send the values to Raspberry and
+#and finally it shows in screen which axe has been pressed and the value sent to Raspberry 
 try:
 	client = tcp.mysocket()
 	client.connect("192.168.1.192",4200)
