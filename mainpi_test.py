@@ -1,3 +1,4 @@
+ #This is a Raspberry script. It opens a TCP network and print on screen the value recived from laptop
 import tcp
 import pwm
 
