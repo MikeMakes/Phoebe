@@ -47,12 +47,12 @@ try:
 		if axe is not None:
 			client.send("RIGHT")
 			client.send(str(axe))
-			print "RIGHT: " axe
+			print "RIGHT: ", ace
 		axe = axe_move(l2_axe)
 		if axe is not None:
 			client.send("LEFT")
 			client.send(str(axe))
-			print "RIGHT: " axe
+			print "RIGHT: ", axe
 
 finally:
 	client.send("EXIT")
