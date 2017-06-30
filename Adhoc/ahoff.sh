@@ -27,9 +27,10 @@ error_exit()
 #Check what RPi is this
 PI=false
 grep 'BCM2708' /proc/cpuinfo && PI=true
+grep 'BCM2709' /proc/cpuinfo && PI=true
 
 
-if [ "$PI" = false ]; then sudo systemctl stop NetworkManager.service; fi		#In case the PC use network-manager
+if [ "$PI" = false ]; then sudo stop network-manager; fi		#In case the PC use network-manager
 #Restore interface config and removing backup
 sudo cp /etc/network/interfaces.backup /etc/network/interfaces || error_exit "$LINENO: I couldn't restore the backup"
 sudo rm /etc/network/interfaces.backup
@@ -39,7 +40,7 @@ sudo iwconfig wlan0 mode Managed
 #Turning off and on the interface
 sudo ifdown wlan0 
 sudo ifup wlan0
-if [ "$PI" = false ]; then sudo systemctl start NetworkManager.service; fi		#In case the PC use network-manager
+if [ "$PI" = false ]; then sudo start network-manager; fi		#In case the PC use network-manager
 sudo iwlist wlan0 scan
 sudo iwconfig
 echo "All settings restored" && exit 0

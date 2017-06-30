@@ -23,4 +23,4 @@ error_exit()
 	
 #############################	The script starts here	##############################
 
-vlc rtsp://localhost:8080/test.sdp	#Replace localhost
+vlc -vvv v4l2:///dev/video0 --sout '#rtp{dst=localhost,port=1234,sdp=rtsp://localhost:8080/test.sdp}'

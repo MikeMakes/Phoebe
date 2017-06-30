@@ -16,5 +16,5 @@ iface wlan0 inet static
 	wireless-channel 6
 	wireless-essid piah
 	wireless-mode ad-hoc
-	wireless-key 123456789
+	wireless-key 1234567890
 

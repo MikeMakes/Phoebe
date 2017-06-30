@@ -7,20 +7,6 @@
 #This script should install and setup all dependencies in your raspberry pi
 
 
-#############################	Useful things and error handling	##############
-
-#DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Directory where this script is (Comment this line if it is not neccesary)
-
-# A slicker error handling routine by William Shotts (www.linuxcommand.org)
-
-PROGNAME=$(basename $0)
-
-error_exit()
-{
-	echo "${PROGNAME}: ${1:-"Unknown Error"}" 1>&2
-	exit 1
-}
-
 
 #############################	The script starts here	##############################
 
@@ -29,6 +15,15 @@ sudo apt-get update
 echo "Checking if vlc is installed (and installing it if it''s not), since it would be used as the rtsp client" 
 vlc --version || sudo apt-get install vlc
 
-echo "Checking if picamera library is installed (and installing it if it''s not)" 
-python -c "import picamera" || sudo apt-get install python-picamera
-python3 -c "import picamera" || sudo apt-get install python3-picamera
+echo "Checking evdev library (gamepad input)" 
+INSTALL_EVDEV = false
+python -c "import evdev" || INSTALL_EVDEV = true
+if [ "$INSTALL_EVDEV" = true ]; then 
+	sudo apt-get install python
+	sudo apt-get install python-dev python-pip gcc
+	sudo apt-get install linux-headers-$(uname -r)
+	pip install evdev		#sudo apt-get install python-evdev gcc
+fi
+
+echo "Checking socket library (used for TCP connection)"
+python -c "import socket" || sudo apt-get install python-socket
