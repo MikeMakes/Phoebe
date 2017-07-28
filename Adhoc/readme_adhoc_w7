@@ -1,4 +1,4 @@
-ACTIVAR AD-HOC EN WINDOWS 7
+ENABLE AD-HOC ON W7 (ACTIVAR AD-HOC EN W7)
 ----------------------------
 
 1.- Click Start and choose Control Panel
@@ -8,19 +8,19 @@ ACTIVAR AD-HOC EN WINDOWS 7
 	(Selecciona Ver el estado y las tareas de red)
 
 3.- From the Network and Sharing Center window, select Set Up a New Connection or Network
-	(En la ventana de Centro de redes y recursos compartidos, pinchar en Configurar una nueva conexión o red)
+	(En la ventana de Centro de redes y recursos compartidos, pinchar en Configurar una nueva conexiÃ³n o red)
 
 4.- From the Set Up a Connection or Network dialog box, choose SEt Up a Wireless Ad Hoc (Computer-to-Computer)
 Network and click Next; clik Next again.
-	(De la ventana que emerge, seleccionar Configurar una red ad hoc inalámbrica (de equipo a equipo),
-	de las últimas opciones, pinchar en Siguiente, y otra vez en Siguiente).
+	(De la ventana que emerge, seleccionar Configurar una red ad hoc inalÃ¡mbrica (de equipo a equipo),
+	de las Ãºltimas opciones, pinchar en Siguiente, y otra vez en Siguiente).
 
 5.- In the Set Up an Ad Hoc Network dialog box, provide the information of the network
-	(Rellena la ventana con los datos de la conexión ad hoc que se quiere crear)
+	(Rellena la ventana con los datos de la conexiÃ³n ad hoc que se quiere crear)
 		
-		Nombre de red: piah
-		Tipo de seguridad: WPA2-Personal
-		Clave de seguirada: 13456790
+		SSID: piah
+		Security: WPA2-Personal
+		Key: 13456790
 
 6.- Click Next to continue, and then click Close to finish
-	(Pincha en Siguiente para crear la conexión, y después pincha en Cerrar para cerrar la ventana)
+	(Pincha en Siguiente para crear la conexiÃ³n, y despuÃ©s pincha en Cerrar para cerrar la ventana)
