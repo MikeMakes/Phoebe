@@ -14,7 +14,7 @@ grep 'BCM2709' /proc/cpuinfo && PI=true
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Directory where this script is (Commentable in case it is not neccesary)
 
-# A slicker error handling routine by William Shotts (www.linuxcommand.org)
+# A slicker error handling routine by William Shotts (www.linuxcommand.org):
 
 PROGNAME=$(basename $0)
 
