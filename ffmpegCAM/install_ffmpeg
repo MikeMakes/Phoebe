@@ -1,22 +1,25 @@
+#!/bin/bash
+
 #It can take about 30min to do make, and about 5min to do make install.
 
 #First, install libx264
+
 cd /usr/src
 git clone git://git.videolan.org/x264
+
 cd x264
 ./configure --host=arm-unknown-linux-gnueabi --enable-static --disable-opencl
+
 make
 sudo make install
 
+
 #Second, install ffmpeg
 cd /usr/local
-
 sudo git clone git://source.ffmpeg.org/ffmpeg.git
 
 cd ffmpeg/
-
 sudo ./configure --arch=armel --target-os=linux --enable-gpl --enable-libx264 --enable-nonfree
 
 make
-
 make install
