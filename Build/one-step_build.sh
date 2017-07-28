@@ -16,7 +16,7 @@ echo "Checking if vlc is installed (and installing it if it''s not), since it wo
 vlc --version || sudo apt-get install vlc
 
 echo "Checking evdev library (gamepad input)" 
-INSTALL_EVDEV = false
+INSTALL_EVDEV=false
 python -c "import evdev" || INSTALL_EVDEV = true
 if [ "$INSTALL_EVDEV" = true ]; then 
 	sudo apt-get install python
