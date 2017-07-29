@@ -1,25 +1,51 @@
 #!/bin/bash
 
+
+#############################	Description	######################################
+
+#Stream video to the client from server with ffmpeg
+
+
+#############################	Useful things and error handling	##############
+#Check what RPi is this
+PI=false
+grep 'BCM2708' /proc/cpuinfo && PI=true
+grep 'BCM2709' /proc/cpuinfo && PI=true
+
+#DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Directory where this script is (Commentable in case it is not neccesary)
+
+# A slicker error handling routine by William Shotts (www.linuxcommand.org):
+
+PROGNAME=$(basename $0)
+
+error_exit()
+{
+	echo "${PROGNAME}: ${1:-"Unknown Error"}" 1>&2
+	exit 1
+}
+
+#############################	The script starts here	##############################
+
 #It can take about 30min to do make, and about 5min to do make install.
 
 #First, install libx264
 
 cd /usr/src
-git clone git://git.videolan.org/x264
+git clone git://git.videolan.org/x264 || error_exit "$LINENO: Error cloning the libx264's git repository"
 
 cd x264
-./configure --host=arm-unknown-linux-gnueabi --enable-static --disable-opencl
+./configure --host=arm-unknown-linux-gnueabi --enable-static --disable-opencl  || error_exit "$LINENO: Error configuring x264"
 
-make
-sudo make install
+make || error_exit "$LINENO: What? Uhm, error... making, I suppose"
+sudo make install || error_exit "$LINENO: This is weird, make install failed"
 
 
 #Second, install ffmpeg
 cd /usr/local
-sudo git clone git://source.ffmpeg.org/ffmpeg.git
+sudo git clone git://source.ffmpeg.org/ffmpeg.git || error_exit "$LINENO: Error cloning the ffmpeg's git repository"
 
 cd ffmpeg/
-sudo ./configure --arch=armel --target-os=linux --enable-gpl --enable-libx264 --enable-nonfree
+sudo ./configure --arch=armel --target-os=linux --enable-gpl --enable-libx264 --enable-nonfree || error_exit "$LINENO: Error configuring ffmpeg"
 
-make
-make install
+make || error_exit "$LINENO: What? Uhm, error... making, I suppose"
+make install || error_exit "$LINENO: This is weird, make install failed. Maybe roots permissions are needed, check this script if so"

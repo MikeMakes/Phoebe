@@ -12,7 +12,7 @@ PI=false
 grep 'BCM2708' /proc/cpuinfo && PI=true
 grep 'BCM2709' /proc/cpuinfo && PI=true
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Directory where this script is (Commentable in case it is not neccesary)
+#DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )" #Directory where this script is (Commentable in case it is not neccesary)
 
 # A slicker error handling routine by William Shotts (www.linuxcommand.org):
 
@@ -28,12 +28,12 @@ error_exit()
 
 
 if [ "$PI" = true ]; then 
-	ffmpeg -f v4l2 -framerate 30 -video_size 640x480 -i /dev/video0 -tune 		zerolatency -f rtp rtp://10.42.0.1:1234 & PIDFF=$!
+	ffmpeg -f v4l2 -framerate 30 -video_size 640x480 -i /dev/video0 -tune 		zerolatency -f rtp rtp://10.42.0.1:1234 & PIDFF=$! || error_exit "$LINENO: Couldn't initiate FFMpeg on the RPi"
 	#chapuza. debe cerrarse el ffmpeg cuando se quiera cerrar el programa.
 
 else
 	#ffplay rtp://10.42.0.1:1234	
-	ffplay udp://10.42.0.1:1234
+	ffplay udp://10.42.0.1:1234 || error_exit "$LINENO: Couldn't play the stream from the RPi"
 
 fi
 
