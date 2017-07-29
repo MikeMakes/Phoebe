@@ -25,7 +25,7 @@ error_exit()
 #############################	The script starts here	##############################
 
 if [ -e /etc/network/interfaces.backup ]; then
-	echo "Backup alredy exist. Ad-Hoc probably on, trying to turn it off"
+	echo "Backup alredy exist. Ad-Hoc probably on, trying to turn it off and then continuing"
 	.$DIR/ahoff.sh
 else
 	echo "Backup /etc/network/interfaces as interfaces.backup"
