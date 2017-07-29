@@ -27,3 +27,9 @@ fi
 
 echo "Checking socket library (used for TCP connection)"
 python -c "import socket" || sudo apt-get install python-socket
+
+echo "Actually you should install ffmpeg too, there is a different script for that in /ffmpegCAM/install_ffmpeg.sh"
+echo "Yeah, I know, I could ask if you want to install it now and offer you the option to automatically do so right?"
+sleep 1
+echo "No, Im not doing that, fuck yourself"
+echo "Said in a nice way :3" 
