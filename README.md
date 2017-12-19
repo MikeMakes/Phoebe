@@ -8,9 +8,10 @@ I am Phoebe, an amphibian vehicle being developed by students from the Universit
             * Pelayo Gutiérrez Jiménez
             * Juan Sandubete López
             * Javier Ponce Chulani
-            *
-            *
-            *
+            * Alvaro Morales Marquez
+            * Bryan Kevin Condor Romero
+            * Jose Manuel Salvador Vazquez
+            
                
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
