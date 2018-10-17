@@ -13,7 +13,7 @@ try:
  
 	lmotor = pca.channels[0]
 	lmotordc = lmotor.duty_cycle
-	i=float(0)
+	i=format(0,'#04x')
 	lmotordc = i
 
         while True:
