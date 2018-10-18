@@ -19,14 +19,14 @@ try:
 		print ("min: 0x0000 || MAX: 0xffff (65535)")
 		print ("Esperando nueva duty cycle: ")
 		dc=input()
-		if dc==on:
-			dc=int(0xffff,16)
-		elif dc=off:
-			i=int(0,16)
-		elif dc==half:
-			dc=int(0x7fff,16)
+		if dc=='on':
+			dc=int('1999',16)
+		elif dc=='off':
+			dc=int('ccd',16)
+		elif dc=='half':
+			dc=int('1332',16)
 		else:
-			dc=int(i,16)
+			dc=int(dc,16)
 
 		leftm.duty_cycle = dc
 finally:
