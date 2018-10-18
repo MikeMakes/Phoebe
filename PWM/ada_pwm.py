@@ -20,11 +20,11 @@ try:
 		print ("Esperando nueva duty cycle: ")
 		dc=input()
 		if dc=='on':
-			dc=int('1999',16)
+			dc=int('1999',16)	#6553
 		elif dc=='off':
-			dc=int('ccd',16)
+			dc=int('ccd',16)	#3277
 		elif dc=='half':
-			dc=int('1332',16)
+			dc=int('1332',16)	#4914
 		else:
 			dc=int(dc,16)
 
