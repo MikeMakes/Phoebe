@@ -11,16 +11,23 @@ try:
 
 	pca.frequency = 50	# Set the PWM frequency to 50hz.
 
-	lmotor = pca.channels[0]
-	lmotordc = lmotor.duty_cycle
-	i=format(0,'#04x')
-	lmotordc = i
+	leftm = pca.channels[0]
+	dc=format(0,'#04x')
 
 	while True:
-		print ("Valor de duty cycle:{}".format(i))
+		print ("Valor de duty cycle:{}".format(dc))
+		print ("min: 0x0000 || MAX: 0xffff (65535)")
 		print ("Esperando nueva duty cycle: ")
-		i=input()
-		lmotor.duty_cycle = int(i,16)
+		dc=input()
+		if dc==on:
+			dc=int(0xffff,16)
+		elif dc=off:
+			i=int(0,16)
+		elif dc==half:
+			dc=int(0x7fff,16)
+		else:
+			dc=int(i,16)
+
+		leftm.duty_cycle = dc
 finally:
 	pca.deinit()
-	clean()
