@@ -3,3 +3,7 @@ https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuit
 
 Examples;
 https://learn.adafruit.com/16-channel-pwm-servo-driver/python-circuitpython
+
+Values; minimun low pwm time 5us
+50hz 5%-10%
+500hz	[0,002s] full:1860us(93%)[ee14] stop:1060us(53%)[87AD]
