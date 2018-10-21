@@ -24,8 +24,7 @@ try:
 		print ("Esperando nuevo %")
 		dc=input()
 		dc=mapp(int(dc),0,100,3277,6553)
-		dc=hex(dc)
-
-		leftm.duty_cycle = dc
+		dc=hex(int(dc))
+		leftm.duty_cycle = int(dc,16)
 finally:
 	pca.deinit()
