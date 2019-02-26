@@ -1,9 +1,10 @@
 # Phoebe
 I am Phoebe, an amphibian vehicle developed by students from the University of Seville.
 
-This was a one trimester class project, it is alredy finished and abandoned but what you see is functional and there are somethings that even works well.
+The concept is a tele-operated airboat like vehicle with a raspberry pi as brain controled from a pc through Ad-Hoc wifi.
 
-The concept is a tele-operated amphibian vehicle with a raspberry pi as brain controled from a pc through Ad-Hoc wifi.
+This was a one trimester class project, it is alredy finished and abandoned but what you see is functional and there are somethings that even work well. 100% FREE SOFTWARE take whatever u want; if you do so, I would apreciatte a link to your project just for the sake of curiosity.
+
 A full in detail doc (in spanish) can be found as doc.pdf. Here it comes a brief description of all parts involved.
 
 # Adhoc
