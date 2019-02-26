@@ -1,5 +1,17 @@
 # Phoebe
-I am Phoebe, an amphibian vehicle being developed by students from the University of Seville
+I am Phoebe, an amphibian vehicle developed by students from the University of Seville.
+
+This was a one trimester class project, it is alredy finished and abandoned but what you see is functional and there are somethings that even works well.
+
+The concept is a tele-operated amphibian vehicle with a raspberry pi as brain controled from a pc through Ad-Hoc wifi.
+A full in detail doc (in spanish) can be found as doc.pdf. Here it comes a brief description of all parts involved.
+
+# Adhoc
+
+# Control
+
+# Arducontrol
+
 
 
     Copyright (C) 2017
