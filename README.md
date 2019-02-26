@@ -12,6 +12,8 @@ A full in detail doc (in spanish) can be found as doc.pdf. Here it comes a brief
 
 # Arducontrol
 
+# All this is free
+
 
 
     Copyright (C) 2017
