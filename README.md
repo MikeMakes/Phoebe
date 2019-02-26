@@ -5,8 +5,7 @@ The concept is a tele-operated airboat like vehicle with a raspberry pi as brain
 
 This was an one trimester class project that is alredy finished and abandoned but what you see is functional and there are somethings that even work well. 100% FREE SOFTWARE take whatever u want; if you do so, I would apreciatte a link to your project just for the sake of curiosity.
 
-A full in detail doc (in spanish) can be found as doc.pdf. 
-Here it comes a brief description of all parts involved.
+A full in detail doc (in spanish) can be found as doc.pdf.
 
 # Adhoc
 
